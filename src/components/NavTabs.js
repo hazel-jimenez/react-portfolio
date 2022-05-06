@@ -7,35 +7,35 @@ function NavTabs({ currentPage, handlePageChange }) {
     <ul className="nav nav-tabs">
       <li className="nav-item">
         <a
-          href="#home"
-          onClick={() => handlePageChange('Home')}
+          href="#aboutMe"
+          onClick={() => handlePageChange('About Me')}
           //*  TODO: BONUS: Add a comment explaining what kind of operator this is and what it is checking for
 
-          className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}
+          className={currentPage === 'About Me' ? 'nav-link active' : 'nav-link'}
         >
-          Home
+          About Me
         </a>
       </li>
       <li className="nav-item">
         <a
-          href="#about"
-          onClick={() => handlePageChange('About')}
+          href="#portfolio"
+          onClick={() => handlePageChange('Portfolio')}
           //  TODO: Add a comment explaining what this logic is doing
 
-          className={currentPage === 'About' ? 'nav-link active' : 'nav-link'}
+          className={currentPage === 'Portfolio' ? 'nav-link active' : 'nav-link'}
         >
-          About
+          Portfolio
         </a>
       </li>
       <li className="nav-item">
         <a
-          href="#blog"
-          onClick={() => handlePageChange('Blog')}
+          href="#reusme"
+          onClick={() => handlePageChange('Resume')}
           //  TODO: Add a comment explaining what this logic is doing
 
-          className={currentPage === 'Blog' ? 'nav-link active' : 'nav-link'}
+          className={currentPage === 'Resume' ? 'nav-link active' : 'nav-link'}
         >
-          Blog
+          Resume
         </a>
       </li>
       <li className="nav-item">
