@@ -1,6 +1,10 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 export default function Contact() {
+  const { register, handleSubmit, formState: { errors } } = useForm({mode: 'onBlur',});
+  const onSubmit = data => console.log(data);
+  console.log(errors);
   return (
     <div>
       <h1>Contact Me</h1>
@@ -17,6 +21,24 @@ export default function Contact() {
         conubia nostra, per inceptos himenaeos. Etiam ornare rutrum felis at
         rhoncus. Etiam vel condimentum magna, quis tempor nulla.
       </p>
+                  <form onSubmit={handleSubmit(onSubmit)}>
+      <input type="text" placeholder="First name" {...register("firstName", {required: "Required", maxLength: 80})} />
+      {errors.firstName && <p>{errors.firstName.message}</p>}
+
+      <input type="text" placeholder="Last name" {...register("Last name", {required: "This field is required", maxLength: 100})} />
+
+      <input type="text" placeholder="Email" {...register("email", {required: "NEED THIS", pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: "invalid email address"
+          }})} />
+          {errors.email && <p>{errors.email.message}</p>}
+      <textarea type="text" placeholder="Message Here" {...register("Message", {required: true,})} />
+
+
+      <input type="submit" />
+    </form>
+
     </div>
   );
 }
+
